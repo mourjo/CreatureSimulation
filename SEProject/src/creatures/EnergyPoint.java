@@ -1,12 +1,8 @@
 package creatures;
 
-import static java.lang.Math.toDegrees;
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
-import java.util.List;
 
 import visual.IDrawable;
 

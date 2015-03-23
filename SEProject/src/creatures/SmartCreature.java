@@ -1,15 +1,11 @@
 package creatures;
 
 import static commons.Utils.filter;
-import static java.lang.Math.PI;
 import static java.lang.Math.abs;
-import static java.lang.Math.atan;
 
 import java.awt.Color;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 import commons.Utils.Predicate;
 

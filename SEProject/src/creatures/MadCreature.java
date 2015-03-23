@@ -1,9 +1,7 @@
 package creatures;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.geom.Point2D;
-import java.net.MalformedURLException;
 import java.util.List;
 
 import plug.IPlugin;
@@ -14,6 +12,7 @@ public class MadCreature extends AbstractCreature {
 	IBehavior behavior;	//strategy design pattern - this is the interface to access the available algorithm (plugin)
 	ParameterWrapper param;
 
+	@SuppressWarnings("unchecked")
 	public MadCreature(IEnvironment environment, Point2D position, double sp, double dir, Color col) {
 		super(environment, position);
 
@@ -28,10 +27,11 @@ public class MadCreature extends AbstractCreature {
 			PluginLoader PL = new PluginLoader("myplugins/repository/", IBehavior.class);
 			PL.loadPlugins();
 			List<Class<IPlugin>> x = PL.getPluginClasses();
-			for (Class y : x)
+			for (@SuppressWarnings("rawtypes") Class y : x)
 			{
 				if(y.getName().equals("creatures.BehaviorPlugin")) //just to put a check if there are other plugins implementing the IBehavior interface (not required by default)
 				{
+					@SuppressWarnings("rawtypes")
 					Class[] argTypes = {ParameterWrapper.class};
 					behavior = (IBehavior) y.getDeclaredConstructor(argTypes).newInstance(param);
 				}	
